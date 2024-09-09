@@ -13,13 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ptrjgz.snapspot"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ptrjgz.snapspot"
     },
     "web": {
       "bundler": "metro",
@@ -40,6 +42,12 @@
         "projectId": "b943f769-3381-4dc0-baed-b78a2d8fa651"
       }
     },
-    "owner": "ptrjgz"
+    "owner": "ptrjgz",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b943f769-3381-4dc0-baed-b78a2d8fa651"
+    }
   }
 }
