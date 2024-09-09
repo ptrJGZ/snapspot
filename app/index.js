@@ -40,19 +40,21 @@ export default function Index() {
     >
       <MapView
         style={{ width: "100%", height: "100%" }}
-        initialRegion={{
-          latitude: location.coords.latitude,
-          latitude: location.coords.longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
+        initialRegion={
+          {
+            // latitude: location.coords.latitude,
+            // latitude: location.coords.longitude,
+            // latitudeDelta: 0.0922,
+            // longitudeDelta: 0.0421,
+          }
+        }
       >
-        <Marker
+        {/* <Marker
           coordinate={{
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
           }}
-        />
+        /> */}
       </MapView>
     </View>
   );
