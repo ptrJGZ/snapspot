@@ -2,17 +2,24 @@ import React, { useEffect, useState } from "react";
 import { View, Image } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { StyleSheet } from "react-native";
-import { getPhotographers } from "@/services/firestore/photographers";
+import { getClient, getPhotographers } from "@/services/firestore/users";
 
 export default function Index() {
   const [photographers, setPhotographers] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
+    const fetchCurrentUser = async () => {
+      const response = await getClient();
+      setCurrentUser(response);
+    };
+
     const fetchPhotographers = async () => {
       const response = await getPhotographers();
       setPhotographers(response);
     };
 
+    fetchCurrentUser();
     fetchPhotographers();
   }, []);
 
@@ -28,8 +35,11 @@ export default function Index() {
         }}
       >
         <Marker
-          coordinate={{ latitude: 25.765652, longitude: -80.194665 }}
-          title="Me"
+          coordinate={{
+            latitude: currentUser.location.latitude,
+            longitude: currentUser.location.longitude,
+          }}
+          title={currentUser.name}
         />
         {photographers.map((photographer) => (
           <Marker
